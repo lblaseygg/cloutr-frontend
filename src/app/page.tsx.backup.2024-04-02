@@ -1,0 +1,292 @@
+'use client';
+
+import React from 'react';
+import Link from 'next/link';
+import { Button } from '@/components/ui/Button';
+import { PageLayout } from '@/components/layout/PageLayout';
+import { 
+  ArrowRightIcon,
+  SparklesIcon,
+  ChartBarIcon,
+  UserGroupIcon,
+  CalendarIcon,
+  RocketLaunchIcon,
+  MagnifyingGlassIcon,
+  CurrencyDollarIcon,
+  ShieldCheckIcon,
+  ChartPieIcon,
+} from '@heroicons/react/24/outline';
+import Image from 'next/image';
+
+export default function HomePage() {
+  return (
+    <PageLayout>
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center">
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 text-white text-sm font-medium backdrop-blur-sm mb-8">
+              <SparklesIcon className="h-4 w-4 mr-2" />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-indigo-500 to-pink-500 bg-[length:200%_auto] hover:animate-gradient-hover transition-all duration-300">
+                The Future of Influencer Marketing
+              </span>
+            </div>
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
+              Connect with the perfect{' '}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+                influencers
+              </span>
+            </h1>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
+              Find and collaborate with the perfect influencers for your brand. Our platform helps you discover, connect, and manage influencer partnerships all in one place.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/auth/register">
+                <Button className="bg-white text-black hover:bg-gray-100 rounded-full px-8 py-4 text-lg font-medium transition-all duration-200 transform hover:scale-105 shadow-lg">
+                  Get Started
+                  <ArrowRightIcon className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+              <Link href="/discover">
+                <Button className="bg-transparent text-white border-2 border-white hover:bg-white/10 rounded-full px-8 py-4 text-lg font-medium transition-all duration-200 transform hover:scale-105 backdrop-blur-sm">
+                  Explore Creators
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { label: 'Active Creators', value: '10,000+' },
+              { label: 'Brands', value: '1,000+' },
+              { label: 'Campaigns', value: '5,000+' },
+              { label: 'Success Rate', value: '95%' },
+            ].map((stat) => (
+              <div key={stat.label} className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 text-center hover:border-white/20 transition-all duration-200 hover:-translate-y-1 border border-white/10">
+                <div className="text-3xl font-bold text-white mb-2">{stat.value}</div>
+                <div className="text-gray-400">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Why Choose Cloutr
+            </h2>
+            <p className="text-xl text-gray-300">
+              Everything you need to run successful influencer campaigns
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: SparklesIcon,
+                title: 'AI-Powered Matching',
+                description: 'Our advanced AI analyzes creator content and audience data to find your perfect match.'
+              },
+              {
+                icon: ChartBarIcon,
+                title: 'Performance Analytics',
+                description: 'Track campaign performance with real-time analytics and detailed insights.'
+              },
+              {
+                icon: ShieldCheckIcon,
+                title: 'Verified Creators',
+                description: 'All creators are verified and vetted to ensure authentic partnerships.'
+              }
+            ].map((feature, index) => (
+              <div key={index} className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-white/20 transition-all duration-200 hover:-translate-y-1">
+                <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6">
+                  <feature.icon className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-4">{feature.title}</h3>
+                <p className="text-gray-300">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-4">
+              How It Works
+            </h2>
+            <p className="text-xl text-gray-300">
+              Three simple steps to transform your influencer marketing
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: MagnifyingGlassIcon,
+                title: 'Find Creators',
+                description: 'Search through our curated database of influencers and find the perfect match for your brand.'
+              },
+              {
+                icon: CurrencyDollarIcon,
+                title: 'Connect & Collaborate',
+                description: 'Reach out to creators, negotiate terms, and start collaborating on your campaign.'
+              },
+              {
+                icon: ChartBarIcon,
+                title: 'Track & Optimize',
+                description: 'Monitor campaign performance and optimize your strategy in real-time.'
+              }
+            ].map((step, index) => (
+              <div key={index} className="relative">
+                <div className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 hover:border-white/20 transition-all duration-200 hover:-translate-y-1 min-h-[280px] flex flex-col">
+                  <div className="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-6">
+                    <step.icon className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-white mb-4">{step.title}</h3>
+                  <p className="text-gray-300">{step.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Join the Revolution Section */}
+      <section className="py-24 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Join the Future of Creator Marketing
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+              Be among the first to revolutionize your brand's creator partnerships with AI-driven matchmaking and campaign management
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 text-center hover:border-white/20 transition-all duration-200 hover:-translate-y-1">
+              <div className="text-3xl font-bold text-white mb-2">Early Access</div>
+              <p className="text-gray-400">Get exclusive features and priority support</p>
+            </div>
+            
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 text-center hover:border-white/20 transition-all duration-200 hover:-translate-y-1">
+              <div className="text-3xl font-bold text-white mb-2">Beta Program</div>
+              <p className="text-gray-400">Shape the future of creator partnerships</p>
+            </div>
+            
+            <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 text-center hover:border-white/20 transition-all duration-200 hover:-translate-y-1">
+              <div className="text-3xl font-bold text-white mb-2">Launch Pricing</div>
+              <p className="text-gray-400">Special rates for early adopters</p>
+            </div>
+          </div>
+
+          <div className="text-center">
+            <Button className="bg-white text-black hover:bg-gray-100 rounded-full px-8 py-4 text-lg font-semibold">
+              Join the Waitlist
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Social Media Platforms Section */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Seamless Platform Integration
+            </h2>
+            <p className="text-xl text-gray-300">
+              Connect with all major social platforms and analytics tools
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { 
+                name: 'Instagram',
+                bgColor: 'bg-gradient-to-br from-pink-500 to-purple-500',
+                textColor: 'text-white',
+                icon: '/social/instagram.svg'
+              },
+              { 
+                name: 'TikTok',
+                bgColor: 'bg-gradient-to-br from-purple-500 to-pink-500',
+                textColor: 'text-white',
+                icon: '/social/tiktok.svg'
+              },
+              { 
+                name: 'YouTube',
+                bgColor: 'bg-gradient-to-br from-red-500 to-red-600',
+                textColor: 'text-white',
+                icon: '/social/youtube.svg'
+              },
+              { 
+                name: 'Twitter',
+                bgColor: 'bg-gradient-to-br from-blue-400 to-blue-500',
+                textColor: 'text-white',
+                icon: '/social/twitter.svg'
+              },
+            ].map((platform) => (
+              <div 
+                key={platform.name} 
+                className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 text-center hover:border-white/20 transition-all duration-200 hover:-translate-y-1"
+              >
+                <div className={`w-12 h-12 mx-auto rounded-full ${platform.bgColor} flex items-center justify-center mb-4`}>
+                  <Image
+                    src={platform.icon}
+                    alt={platform.name}
+                    width={24}
+                    height={24}
+                    className="w-6 h-6"
+                  />
+                </div>
+                <div className="text-white font-semibold">{platform.name}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-gray-400 mb-4">Coming soon:</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              {['LinkedIn', 'Pinterest', 'Snapchat', 'Twitch'].map((platform) => (
+                <div 
+                  key={platform}
+                  className="bg-white/5 backdrop-blur-sm rounded-full px-4 py-2 text-sm text-gray-400 border border-white/10 hover:border-white/20 transition-all duration-200 hover:-translate-y-1"
+                >
+                  {platform}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">
+            Ready to transform your influencer marketing?
+          </h2>
+          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            Join thousands of brands that trust Cloutr to connect with the perfect influencers.
+          </p>
+          <Link href="/auth/register">
+            <Button className="bg-white text-black hover:bg-gray-100 rounded-full px-8 py-4 text-lg font-medium transition-all duration-200 transform hover:scale-105">
+              Start Your Journey
+              <ArrowRightIcon className="ml-2 h-5 w-5" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+    </PageLayout>
+  );
+} 
